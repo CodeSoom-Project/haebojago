@@ -33,15 +33,18 @@ export default function MissionWrite() {
       <form onSubmit={handleSubmit(onSubmit, onError)}>
         <div>
           <label>목표</label>
-          <input type="text" {...register('title')} />
+          <input type="text" {...register('title', { required: true })} />
+          {errors.title && <span>목표를 입력해주세요.</span>}
         </div>
         <div>
           <label>포부한마디</label>
-          <textarea type="text" {...register('saying')} />
+          <textarea type="text" {...register('saying', { required: true })} />
+          {errors.saying && <span>포부 한마디를 입력해주세요.</span>}
         </div>
         <div>
           <label>인증할 횟수</label>
-          <input type="num" {...register('count')} />
+          <input type="num" {...register('count', { required: true })} />
+          {errors.count && <span>인증할 횟수를 입력해주세요.</span>}
         </div>
         <input type="submit" />
       </form>
