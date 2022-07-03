@@ -1,18 +1,24 @@
 import { Route, Routes } from 'react-router-dom';
 
+import { ThemeProvider } from '@emotion/react';
+import { theme } from './shared/styles/theme';
+import GlobalStyle from './shared/styles/GlobalStyles';
+
 import HeaderContainer from './components/HeaderContainer';
 import MissionList from './pages/MissionList';
 import MissionWrite from './pages/MissionWrite';
 
 export default function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+
       <HeaderContainer />
 
       <Routes>
         <Route path="/" element={<MissionList />} />
         <Route path="/writemission" element={<MissionWrite />} />
       </Routes>
-    </div>
+    </ThemeProvider>
   );
 }
